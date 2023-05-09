@@ -1,4 +1,4 @@
-# rtl_optional_bootstrap_tree_view
+# Rtl Bootstrap TreeView
 نمودار درختی پیشرفته ای برای استفاده در حالت های مختلف
 
     - امکان فعال کردن انتخاب برای همه ی موارد 
