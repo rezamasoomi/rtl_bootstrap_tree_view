@@ -1,33 +1,33 @@
-# Rtl Bootstrap TreeView
-نمودار درختی پیشرفته ای برای استفاده در حالت های مختلف
+# optional_tree_view
 
-    - امکان فعال کردن انتخاب برای همه ی موارد 
-    - امکان فعال کردن انختاب تنها مواردی که فرزند هستند و زیر شاخه ندارند
-    - غیر فعال کردن موارد دلخواه
-    - انتخاب موارد دلخواه در لحظه ساخته شدن
-    - چند سطحی
-    - چند انتخابی یا تک انتخابی
-    - راست چین و چپ چین
-    - قراردادن چک باکس در راست و چپ
-    - نمایش تعداد فرزندان
+## rtl and ltr bootstrap treeview with many options: 
+    - checkable all items 
+    - checkable just last chiled level items 
+    - disabled default items
+    - checked default items
+    - multi level
+    - multi choice or single choice 
+    - rtl and ltr
+    - right or left position of checkbox
+    - show child count
   
 ![samples](https://user-images.githubusercontent.com/53290330/236744138-6d37591b-7e4c-4a31-8395-c706d19559a0.png)
 
 
 
-## نحوه استفاده:
-## 1-این فایل ها را اضافه کنید:
+## Use:
+## 1-Add This Files
 
 ```html
 <link rel="stylesheet" href="css/bootstrap.css">
 <script src="js/jquery-3.6.4.js"></script>
 <script src="js/optional-treeview.js"></script>
 ```
-- برای دریافت آیکون ها این لینک را اضافه کنید
+and add this for get icons
 ```html
 <script src="https://kit.fontawesome.com/aec3832ad8.js" crossorigin="anonymous"></script>
 ```
-## 2-افزودن یکDIV برای نمایش نمودار:
+## 2-Add A DIV Tag For Show TreeView
 ```html
 <a>All Items Checkable</a>
 <div class="form-group">
@@ -35,7 +35,7 @@
 </div>
 
 ```
-## 3-افزودن تابع ایجاد ارایه مناسب برای نمودار:
+## 3-Add Function For Create Tree View Object Array
 
 ```javascript
 function createTreeArray(data, selected_items, disable_items){
@@ -117,34 +117,34 @@ function createTreeArray(data, selected_items, disable_items){
     }
 ```
 
-این تابع سه ورودی دارد
+this function need three input array
 <br />
 - data
- (ارایه ای از آبجکت ها مانند:
+ (array of object of all data like:
 [{"id":1,"step_name":"one","master_id":null},{"id":4,"step_name":"one_chiled","master_id":1}])
-- selected_items (لیستی از "id" برای انتخاب پیشفرض مانند: [1,3])
-- disable_items (لیستی از "id" برای غیر فعال کردن مانند: [2,3,5])
+- selected_items (array of "id" for set selected like: [1,3])
+- disable_items (array of "id" for set disabled like: [2,3,5])
 
-## 4-دریافت اطلاعات
+## 4-Input Data List
 ```javascript
 let allSteps=
 [{"id":1,"step_name":"one","master_id":null},{"id":4,"step_name":"one_chiled","master_id":1},{"id":5,"step_name":"one_chiled_chiled","master_id":4},
             {"id":2,"step_name":"two","master_id":null},
             {"id":3,"step_name":"three","master_id":null}];
 ```
-### دیتای ورودی
-دیتای ورودی آرایه ای از آبجکت هاست که هر آبجکت شامل سه مقدار است:
+### input data fields
+input data is a array of objects that any object has three field
 <br />
 - "id": unique field for any item
 - "step_name": text for items
 - "master_id": father id for item
 
-## 5-تبدیل دیتای ورودی به دیتای قابل استفاده در نمودار
+## 5-Convert Input Data To TreeView Input Array
 ```javascript
 let treeD=createTreeArray(allSteps,[],[]);
 ```
 
-## 6-تعریف و تنظیم نمودار
+## 6-Set Setting For TreeView
 
 ```javascript
 $('#tree_view_div_id').treeview({
@@ -161,7 +161,7 @@ $('#tree_view_div_id').treeview({
             }
     });
 ```
-### تنظیمات
+### setting options
 | option name  | value | description |
 | ------------- | ------------- | ------------- |
 | data  | array like: [{"id":1,"step_name":"one","master_id":null},{"id":4,"step_name":"one_chiled","master_id":1},{"id":5,"step_name":"one_chiled_chiled","master_id":4}]  | this is an array of objects with three field  |
